@@ -1,5 +1,11 @@
 <!-- blog/category_list.html -->
+<!-- 設定したカテゴリーの一覧ページ -->
 
+{% extends "base.html" %}
+{% load static %}
+{% block title %} ちりもつればでーたべーす|カテゴリ一覧{{ block.super }}{% endblock %}
+
+{% block content %}
 <h1>カテゴリ一覧</h1>
 <ul>
   {% for category in object_list %}
@@ -8,3 +14,4 @@
   <li>カテゴリはありません。</li>
   {% endfor %}
 </ul>
+{% endblock %}

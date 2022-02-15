@@ -1,4 +1,9 @@
 <!-- blog/tag_post.html -->
+{% extends "base.html" %}
+{% load static %}
+{% block title %}「#{{ tag.name }}」の投稿一覧{{ block.super }}{% endblock %}
+
+{% block content %}
 
 <h1>「#{{ tag.name }}」の投稿一覧</h1>
 <ul>
@@ -12,3 +17,5 @@
   <li>まだ投稿はありません。</li>
   {% endfor %}
 </ul>
+
+{% endblock %}

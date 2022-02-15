@@ -1,21 +1,22 @@
 <!-- blog/index.html -->
+<!-- ブログのTOPページ　base.htmlをブロックコンテンツとして上部に表示 -->
+
+{% extends "base.html" %}
 {% load static %}
-<head>
-  <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
-  <link rel="icon" href="{% static 'img/favicon.ico' %}">  
-</head>
-<body>
-  <h1>投稿一覧</h1>
-  <ul>
-    {% for post in object_list %}
-    {% if user.is_authenticated or post.is_public %}
-    <li>{% if not post.is_public %}[下書き] {% endif %}<a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></li>
-  ...
+{% block title %} {{ block.super }}{% endblock %}
+{% block description %}マイブログです。毎日更新します。{% endblock %}
 
-    {% endif %}
-    {% empty %}
-    <li>まだ投稿はありません。</li>
-    {% endfor %}
-  </ul>
-
-</body>
+{% block content %}
+<div class="container">
+  <div class="row">
+    <main class="col-md-8">
+      <h1 class="mb-4">投稿一覧</h1>
+      {% include "blog/snippets/main_post_list.html" %}
+      {% include "blog/snippets/pagination.html" %}
+    </main>
+    <aside class="col-md-4">
+      {% include "blog/snippets/sidebar.html" %}
+    </aside>
+  </div>
+</div>
+{% endblock %}

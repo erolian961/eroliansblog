@@ -1,5 +1,11 @@
 <!-- blog/tag_list.html -->
+<!-- 設定したタグの一覧ページ -->
 
+{% extends "base.html" %}
+{% load static %}
+{% block title %} ちりもつればでーたべーす|タグ一覧{{ block.super }}{% endblock %}
+
+{% block content %}
 <h1>タグ一覧</h1>
 <ul>
   {% for tag in object_list %}
@@ -8,3 +14,4 @@
   <li>タグはありません。</li>
   {% endfor %}
 </ul>
+{% endblock %}
