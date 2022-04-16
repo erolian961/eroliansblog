@@ -1,3 +1,7 @@
+# modelでデータの項目属性を指定　migrationsで変更指示　テーブル作成
+# データベースの内容
+# setting app の所に作成したら表記
+
 from django.db import models
 from django.utils import timezone
 

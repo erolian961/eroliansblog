@@ -31,7 +31,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_summernote',
 ]
+SUMMERNOTE_THEME = 'bs4'
+X_FRAME_OPTOPNS = 'SAMEORIGIN'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

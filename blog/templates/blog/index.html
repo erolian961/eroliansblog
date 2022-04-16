@@ -4,13 +4,21 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %} {{ block.super }}{% endblock %}
-{% block description %}マイブログです。毎日更新します。{% endblock %}
+{% block description %}ブログ頑張ります{% endblock %}
 
 {% block content %}
-<div class="container">
+<header class="bg-light border-bottom mb-4">
+  <div class="container">
+    <div class="text-center my-5">
+      <h1 class="fw-bolder">ちりもつもればでーたべーす</h1>
+      <p class="lead mb-0">erolians blog</p>
+    </div>
+  </div>
+</header>
+<div class="container mb-5">
   <div class="row">
     <main class="col-md-8">
-      <h1 class="mb-4">投稿一覧</h1>
+
       {% include "blog/snippets/main_post_list.html" %}
       {% include "blog/snippets/pagination.html" %}
     </main>

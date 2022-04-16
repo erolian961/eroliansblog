@@ -1,3 +1,7 @@
+/*各個別アプリ用css */
+/* blog/static/blog/css/blog.css */
+/*<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">*/
+
 h1 {
   color: red;
 }

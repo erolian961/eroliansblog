@@ -1,0 +1,71 @@
+<!-- templates/base/footer.html -->
+
+{% load static %}
+
+<footer class="footer bg-primary">
+  <div class="container">
+    <div class="row">
+        {% include "blog/snippets/search_form.html" %}
+    </div>
+  </div>
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-3">
+        <div class="category">
+
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a class="card-link" href="#">ホーム</a>
+          </li>
+          {% for category in categories|dictsort:"id" %}
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="{% url 'blog:category_post' category.slug %}" class="card-link">{{ category.name }}</a>
+            <span class="badge badge-primary badge-pill">{{ category.num_posts }}</span>
+          </li>
+          {% endfor %}
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a class="card-link" href="#">プライバシーポリシー</a>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a class="card-link" href="#">免責事項</a>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a class="card-link" href="#">お問い合わせ</a>
+          </li>
+        </ul>
+        </div>
+      </div>
+
+        <div class="col-sm-3">
+
+        </div>
+      <div class="col-sm-3">
+
+        <div class="card">
+          <div class="card-header">
+            タグ
+          </div>
+          <ul class="list-group list-group-flush">
+            {% for tag in tags|dictsortreversed:"num_posts"|slice:":5" %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <a href="{% url 'blog:tag_post' tag.slug %}" class="card-link">{{ tag.name }}</a>
+              <span class="badge badge-primary badge-pill">{{ tag.num_posts }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+          <div class="card-body text-center">
+            <a href="{% url 'blog:tag_list' %}" class="card-link">すべてのタグを見る</a>
+          </div>
+      </div>
+    </div>
+    <div class="row mt-5 mb-2">
+      <div class="col text-center">
+        <small>© 2022 erolian</small>
+      </div>
+
+    </div>
+  </div>
+</footer>
