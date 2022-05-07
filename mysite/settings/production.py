@@ -14,3 +14,5 @@ ALLOWED_HOSTS = ['.herokuapp.com']
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
+
+GOOGLE_ANALYTICS_TRACKING_ID='G-5BB3XX9FHP'

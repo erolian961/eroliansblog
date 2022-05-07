@@ -23,17 +23,28 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # Application definition
 
 INSTALLED_APPS = [
+    # third-party apps
     'whitenoise.runserver_nostatic',
     'blog.apps.BlogConfig',
+    # django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
+    'django.contrib.sitemaps',
+    # third-party apps
     'django_summernote',
+     # your apps
 ]
+
+SITE_ID = 1
+
 SUMMERNOTE_THEME = 'bs4'
+
 X_FRAME_OPTOPNS = 'SAMEORIGIN'
 
 
@@ -62,6 +73,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'mysite.context_processors.common',
+                'mysite.context_processors.google_analytics',
             ],
         },
     },
@@ -119,7 +131,7 @@ USE_TZ = True
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'media_root')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'static_root')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [

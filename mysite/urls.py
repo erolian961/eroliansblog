@@ -18,11 +18,29 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include, path
+from .feeds import RssLatestPostsFeed, AtomLatestPostsFeed
+from django.contrib.sitemaps.views import sitemap
+
+from .sitemaps import (
+    BlogPostSitemap,
+    StaticViewSitemap,
+    FlatPageSitemap,
+)
+
+sitemaps = {
+    'blog': BlogPostSitemap,
+    'static': StaticViewSitemap,
+    'flatpages': FlatPageSitemap,
+}
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
     path('summernote/', include('django_summernote.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
+    path('feed/rss/', RssLatestPostsFeed()),
+    path('feed/atom/', AtomLatestPostsFeed()),
 ]
 
 if settings.DEBUG:
