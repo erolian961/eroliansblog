@@ -20,8 +20,8 @@ DATABASES['default'].update(db_from_env)
 
 GOOGLE_ANALYTICS_TRACKING_ID='G-5BB3XX9FHP'
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME' : 'hvpkxoza5',
-    'API_KEY' : os.environ.get('API_KEY'),
-    'API_SECRET' : os.environ.get('API_SECRET'),
+CLOUDINARY_STORAGE  = {
+     'CLOUD_NAME':'hvpkxoza5',
+     'API_KEY':os.environ.get('CLOUDDINARY_API_KEY'),
+     'API_SECRET':os.environ.get('CLOUDDINARY_API_SECRET')
 }
