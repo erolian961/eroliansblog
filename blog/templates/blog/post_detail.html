@@ -3,6 +3,7 @@
 
 {% extends "base.html" %}
 {% load static %}
+{% load cloudinary %}
 
 <link rel="stylesheet" href="{% static 'blog/css/post_detail_styles.css' %}">
 {% block title %} {{ object.title }}{{ block.super }}{% endblock %}
@@ -15,7 +16,7 @@
         <header class="mb-4">
           <h1 class="fw-bolder mb-1">{{ object.title }}</h1>
           <div class="text-muted fst-italic mb-2">{{ object.published_at|date }}</div>
-          
+
           {% include "blog/snippets/category_link.html" %}
           {% include "blog/snippets/tag_link.html" %}
         </header>
