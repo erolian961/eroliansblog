@@ -8,7 +8,7 @@ from blog.models import Post, Category, Tag
 
 
 class PostDetailView(DetailView):
-    model = Post
+    queryset = Post.objects.all()
 
     def get_object(self, queryset=None):
         obj = super().get_object(queryset=queryset)
@@ -17,8 +17,9 @@ class PostDetailView(DetailView):
         return obj
 
 
+
 class IndexView(ListView):
-    model = Post
+    queryset = Post.objects.all()
     template_name = 'blog/index.html'
     paginate_by = 6
 

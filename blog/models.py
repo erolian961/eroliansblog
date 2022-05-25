@@ -4,7 +4,8 @@
 
 from django.db import models
 from django.utils import timezone
-
+from django_quill.fields import QuillField
+from markdown import markdown
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -47,6 +48,13 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def get_markdown_text_as_html(self):
+        """MarkDown記法で書かれたtextをHTML形式に変換して返す"""
+        return markdown(self.content)
+
 class ContentImage(models.Model):
     post = models.ForeignKey(Post, on_delete=models.PROTECT)
     content_image = models.ImageField(upload_to='post_content_images/')
+
+class QuillPost(models.Model):
+    content = QuillField()

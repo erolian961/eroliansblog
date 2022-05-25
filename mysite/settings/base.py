@@ -44,6 +44,7 @@ INSTALLED_APPS = [
      # heroku apps
      'cloudinary',
      'cloudinary_storage',
+     'django_quill',
 
 
 ]
